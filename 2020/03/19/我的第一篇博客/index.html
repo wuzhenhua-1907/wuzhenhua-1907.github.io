@@ -15,7 +15,7 @@
 <meta property="og:description" content="安装Nodejsnode -v    #查看node版本npm -v    #查看npm版本npm install -g cnpm –registry&#x3D;http:&#x2F;&#x2F;registry.npm.taobao.org    #安装淘宝的cnpm 管理器cnpm -v    #查看cnpm版本cnpm install -g hexo-cli #安装hexo框架hexo -v    #查看hexo版本mk">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-19T04:02:50.000Z">
-<meta property="article:modified_time" content="2020-03-22T11:59:45.124Z">
+<meta property="article:modified_time" content="2020-03-22T12:04:48.992Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -95,7 +95,9 @@
 <hr>
 <p>hexo d    #部署到Github仓库里<br><a href="https://YourGithubName.github.io/" target="_blank" rel="noopener">https://YourGithubName.github.io/</a> #访问这个地址可以查看博客</p>
 <p>git clone <a href="https://github.com/litten/hexo-theme-yilia.git" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia #下载yilia主题到本地</p>
-<h1 id="修改hexo根目录下的-config-yml-文件-：-theme-yilia"><a href="#修改hexo根目录下的-config-yml-文件-：-theme-yilia" class="headerlink" title="修改hexo根目录下的 _config.yml 文件 ： theme: yilia"></a>修改hexo根目录下的 _config.yml 文件 ： theme: yilia</h1><p>hexo c    #清理一下<br>hexo g    #生成<br>hexo d    #部署到远程Github仓库<br><a href="https://YourGithubName.github.io/" target="_blank" rel="noopener">https://YourGithubName.github.io/</a> #查看博客</p>
+<h1 id="修改hexo根目录下的-config-yml-文件-：-theme-yilia"><a href="#修改hexo根目录下的-config-yml-文件-：-theme-yilia" class="headerlink" title="修改hexo根目录下的 _config.yml 文件 ： theme: yilia"></a>修改hexo根目录下的 _config.yml 文件 ： theme: yilia</h1><p>hexo c    #清理一下<br>hexo g    #生成<br>hexo d    #部署到远程Github仓库</p>
+<p>npm install hexo-deployer-git –save（第一次加载插件）</p>
+<p><a href="https://YourGithubName.github.io/" target="_blank" rel="noopener">https://YourGithubName.github.io/</a> #查看博客</p>
 <h1 id="插入图片方法"><a href="#插入图片方法" class="headerlink" title="插入图片方法"></a>插入图片方法</h1><p>设置站点配置_config.yml:将post_asset_folder: false改为post_asset_folder: true<br>安装插件:npm install <a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="noopener">https://github.com/CodeFalling/hexo-asset-image</a> – save<br>运行hexo n “XXXXXX”,生成XXXXX.md博文时就会在/source/_posts目录下生成XXXXX的文件夹，将你想在XXXXX博文中插入的照片放置到这个同名文件夹中即可，图片的命名随意。<strong>*<u>（）中的内容是XXXXX/jpg01.jpg，要用/，千万不要用\，用\插入不了。</u>*</strong></p>
 
       

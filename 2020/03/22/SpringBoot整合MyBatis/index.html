@@ -14,13 +14,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="SpringBoot整合MyBatis1.创建项目时添加MyBatis和MySQL 创建后pom.xml中会自动配置： 12345678910111213141516171819202122232425262728&lt;dependencies&gt;		&lt;dependency&gt;			&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupI">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/03/22/SpringBoot%E6%95%B4%E5%90%88MyBatis/jpg01.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/03/22/SpringBoot%E6%95%B4%E5%90%88MyBatis/image-20200322.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/03/22/SpringBoot%E6%95%B4%E5%90%88MyBatis/image-20200322181029836.jpg">
 <meta property="article:published_time" content="2020-03-22T11:47:36.522Z">
-<meta property="article:modified_time" content="2020-03-22T11:56:11.832Z">
+<meta property="article:modified_time" content="2020-03-22T12:08:18.581Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/03/22/SpringBoot%E6%95%B4%E5%90%88MyBatis/jpg01.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2020/03/22/SpringBoot%E6%95%B4%E5%90%88MyBatis/image-20200322.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -91,7 +91,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="SpringBoot整合MyBatis"><a href="#SpringBoot整合MyBatis" class="headerlink" title="SpringBoot整合MyBatis"></a>SpringBoot整合MyBatis</h1><h2 id="1-创建项目时添加MyBatis和MySQL"><a href="#1-创建项目时添加MyBatis和MySQL" class="headerlink" title="1.创建项目时添加MyBatis和MySQL"></a>1.创建项目时添加MyBatis和MySQL</h2><p><img src="/2020/03/22/SpringBoot%E6%95%B4%E5%90%88MyBatis/jpg01.jpg" alt="jpg01"></p>
+        <h1 id="SpringBoot整合MyBatis"><a href="#SpringBoot整合MyBatis" class="headerlink" title="SpringBoot整合MyBatis"></a>SpringBoot整合MyBatis</h1><h2 id="1-创建项目时添加MyBatis和MySQL"><a href="#1-创建项目时添加MyBatis和MySQL" class="headerlink" title="1.创建项目时添加MyBatis和MySQL"></a>1.创建项目时添加MyBatis和MySQL</h2><p><img src="/2020/03/22/SpringBoot%E6%95%B4%E5%90%88MyBatis/image-20200322.jpg" alt="jpg01"></p>
 <p>创建后pom.xml中会自动配置：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;2.1.2&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">			&lt;scope&gt;runtime&lt;/scope&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</span><br><span class="line">			&lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">			&lt;exclusions&gt;</span><br><span class="line">				&lt;exclusion&gt;</span><br><span class="line">					&lt;groupId&gt;org.junit.vintage&lt;/groupId&gt;</span><br><span class="line">					&lt;artifactId&gt;junit-vintage-engine&lt;/artifactId&gt;</span><br><span class="line">				&lt;/exclusion&gt;</span><br><span class="line">			&lt;/exclusions&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">	&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
 
