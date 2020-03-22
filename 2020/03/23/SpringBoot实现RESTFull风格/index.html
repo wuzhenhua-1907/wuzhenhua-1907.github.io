@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>SpringBoot实现RESTFull风格 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="SpringBoot实现RESTFull风格RESTFull风格是一种互联网软件设计的风格，并不是一种标准，它提出了一种客户端和服务端交互的架构理念和设计原则，基于这种理念和原则的接口更加简洁有层次。任何技术都可以实现RESTFull风格，只要一个架构符合RESTFull原则，就称它为RESTFull架构。 RESTFull风格的一些原则1.查使用get请求，增使用post请求，改使用put请求，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot实现RESTFull风格">
+<meta property="og:url" content="http://yoursite.com/2020/03/23/SpringBoot%E5%AE%9E%E7%8E%B0RESTFull%E9%A3%8E%E6%A0%BC/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="SpringBoot实现RESTFull风格RESTFull风格是一种互联网软件设计的风格，并不是一种标准，它提出了一种客户端和服务端交互的架构理念和设计原则，基于这种理念和原则的接口更加简洁有层次。任何技术都可以实现RESTFull风格，只要一个架构符合RESTFull原则，就称它为RESTFull架构。 RESTFull风格的一些原则1.查使用get请求，增使用post请求，改使用put请求，">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/03/23/SpringBoot%E5%AE%9E%E7%8E%B0RESTFull%E9%A3%8E%E6%A0%BC/image-20200322235923968.jpg">
+<meta property="article:published_time" content="2020-03-22T16:00:22.407Z">
+<meta property="article:modified_time" content="2020-03-22T16:08:02.011Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/03/23/SpringBoot%E5%AE%9E%E7%8E%B0RESTFull%E9%A3%8E%E6%A0%BC/image-20200322235923968.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-SpringBoot实现RESTFull风格" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/23/SpringBoot%E5%AE%9E%E7%8E%B0RESTFull%E9%A3%8E%E6%A0%BC/" class="article-date">
+  <time datetime="2020-03-22T16:00:22.407Z" itemprop="datePublished">2020-03-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SpringBoot实现RESTFull风格
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="SpringBoot实现RESTFull风格"><a href="#SpringBoot实现RESTFull风格" class="headerlink" title="SpringBoot实现RESTFull风格"></a>SpringBoot实现RESTFull风格</h1><p>RESTFull风格是一种互联网软件设计的风格，并不是一种标准，它提出了一种客户端和服务端交互的架构理念和设计原则，基于这种理念和原则的接口更加简洁有层次。任何技术都可以实现RESTFull风格，只要一个架构符合RESTFull原则，就称它为RESTFull架构。</p>
+<h2 id="RESTFull风格的一些原则"><a href="#RESTFull风格的一些原则" class="headerlink" title="RESTFull风格的一些原则"></a>RESTFull风格的一些原则</h2><p>1.查使用get请求，增使用post请求，改使用put请求，删使用delete请求</p>
+<p>2.请求路径中不要出现动词</p>
+<p>3.传的参数不是数据库中的参数时，可以和之前一样不使用/而使用?和&amp;进行传值，例如分页、排序等</p>
+<h2 id="SpringBoot实现方式："><a href="#SpringBoot实现方式：" class="headerlink" title="SpringBoot实现方式："></a>SpringBoot实现方式：</h2><p>1.在@RestMapping中通过{}设置映射</p>
+<p>2.在方法中通过@PathVariable接受请求中的数据</p>
+<p>3.在访问时遵循@RestMapping中的映射传输数据</p>
+<h2 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h2><p>创建User对象：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//set\get\toString方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编写controller：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"> 	<span class="comment">//访问http://localhost:8080/user/restFull/wangwu/18</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/restFull/&#123;name&#125;/&#123;age&#125;"</span>)</span><br><span class="line">    <span class="keyword">public</span> <span class="meta">@ResponseBody</span> <span class="function">User <span class="title">restFull</span><span class="params">(@PathVariable String name,@PathVariable <span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setAge(age);</span><br><span class="line">        user.setName(name);</span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行入口类，通过浏览器访问结果：</p>
+<p><img src="/2020/03/23/SpringBoot%E5%AE%9E%E7%8E%B0RESTFull%E9%A3%8E%E6%A0%BC/image-20200322235923968.jpg" alt="image-20200322235923968"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/23/SpringBoot%E5%AE%9E%E7%8E%B0RESTFull%E9%A3%8E%E6%A0%BC/" data-id="ck838k8te0001gwoz38sx0h5h" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/22/SpringBoot%E4%B8%8B%E7%9A%84SpringMVC%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">SpringBoot下的SpringMVC常用注解</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/03/23/SpringBoot%E5%AE%9E%E7%8E%B0RESTFull%E9%A3%8E%E6%A0%BC/">SpringBoot实现RESTFull风格</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/22/SpringBoot%E4%B8%8B%E7%9A%84SpringMVC%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/">SpringBoot下的SpringMVC常用注解</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/22/SpringBoot%E9%85%8D%E7%BD%AEJSP/">SpringBoot配置JSP</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/22/SpringBoot%E6%95%B4%E5%90%88MyBatis/">SpringBoot整合MyBatis</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/22/SpringBoot%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">SpringBoot配置文件</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

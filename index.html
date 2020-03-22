@@ -64,6 +64,101 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-SpringBoot实现RESTFull风格" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/23/SpringBoot%E5%AE%9E%E7%8E%B0RESTFull%E9%A3%8E%E6%A0%BC/" class="article-date">
+  <time datetime="2020-03-22T16:00:22.407Z" itemprop="datePublished">2020-03-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/23/SpringBoot%E5%AE%9E%E7%8E%B0RESTFull%E9%A3%8E%E6%A0%BC/">SpringBoot实现RESTFull风格</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="SpringBoot实现RESTFull风格"><a href="#SpringBoot实现RESTFull风格" class="headerlink" title="SpringBoot实现RESTFull风格"></a>SpringBoot实现RESTFull风格</h1><p>RESTFull风格是一种互联网软件设计的风格，并不是一种标准，它提出了一种客户端和服务端交互的架构理念和设计原则，基于这种理念和原则的接口更加简洁有层次。任何技术都可以实现RESTFull风格，只要一个架构符合RESTFull原则，就称它为RESTFull架构。</p>
+<h2 id="RESTFull风格的一些原则"><a href="#RESTFull风格的一些原则" class="headerlink" title="RESTFull风格的一些原则"></a>RESTFull风格的一些原则</h2><p>1.查使用get请求，增使用post请求，改使用put请求，删使用delete请求</p>
+<p>2.请求路径中不要出现动词</p>
+<p>3.传的参数不是数据库中的参数时，可以和之前一样不使用/而使用?和&amp;进行传值，例如分页、排序等</p>
+<h2 id="SpringBoot实现方式："><a href="#SpringBoot实现方式：" class="headerlink" title="SpringBoot实现方式："></a>SpringBoot实现方式：</h2><p>1.在@RestMapping中通过{}设置映射</p>
+<p>2.在方法中通过@PathVariable接受请求中的数据</p>
+<p>3.在访问时遵循@RestMapping中的映射传输数据</p>
+<h2 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h2><p>创建User对象：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//set\get\toString方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编写controller：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"> 	<span class="comment">//访问http://localhost:8080/user/restFull/wangwu/18</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/restFull/&#123;name&#125;/&#123;age&#125;"</span>)</span><br><span class="line">    <span class="keyword">public</span> <span class="meta">@ResponseBody</span> <span class="function">User <span class="title">restFull</span><span class="params">(@PathVariable String name,@PathVariable <span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setAge(age);</span><br><span class="line">        user.setName(name);</span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行入口类，通过浏览器访问结果：</p>
+<p><img src="/2020/03/23/SpringBoot%E5%AE%9E%E7%8E%B0RESTFull%E9%A3%8E%E6%A0%BC/image-20200322235923968.jpg" alt="image-20200322235923968"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/23/SpringBoot%E5%AE%9E%E7%8E%B0RESTFull%E9%A3%8E%E6%A0%BC/" data-id="ck838k8te0001gwoz38sx0h5h" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-SpringBoot下的SpringMVC常用注解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/22/SpringBoot%E4%B8%8B%E7%9A%84SpringMVC%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/" class="article-date">
+  <time datetime="2020-03-22T14:29:30.105Z" itemprop="datePublished">2020-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/22/SpringBoot%E4%B8%8B%E7%9A%84SpringMVC%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/">SpringBoot下的SpringMVC常用注解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="SpringBoot下的SpringMVC常用注解"><a href="#SpringBoot下的SpringMVC常用注解" class="headerlink" title="SpringBoot下的SpringMVC常用注解"></a>SpringBoot下的SpringMVC常用注解</h1><h3 id="1-Controller"><a href="#1-Controller" class="headerlink" title="1.@Controller"></a>1.@Controller</h3><p>与SpringMVC中相同，处理http请求</p>
+<h3 id="2-RestController"><a href="#2-RestController" class="headerlink" title="2.@RestController"></a>2.@RestController</h3><p>是Spring4后新增注解，是@Controller与@ResponseBody的组合，增强了@Controller注解，只要类使用了@RestController，类中的方法相当于都添加了@ResponseBody注解，所以只能返回字符串和json数据。</p>
+<h3 id="3-RequestMapping"><a href="#3-RequestMapping" class="headerlink" title="3.@RequestMapping"></a>3.@RequestMapping</h3><p>请求，经常使用，所有请求都支持。</p>
+<h3 id="4-GetMapping"><a href="#4-GetMapping" class="headerlink" title="4.@GetMapping"></a>4.@GetMapping</h3><p>只支持Get请求，通常用于查询数据</p>
+<h3 id="5-PostMapping"><a href="#5-PostMapping" class="headerlink" title="5.@PostMapping"></a>5.@PostMapping</h3><p>只支持Post请求，通常用于新增数据</p>
+<h3 id="6-PutMapping"><a href="#6-PutMapping" class="headerlink" title="6.@PutMapping"></a>6.@PutMapping</h3><p>只支持Put请求，通常用于修改数据</p>
+<h3 id="7-DeleteMapping"><a href="#7-DeleteMapping" class="headerlink" title="7.@DeleteMapping"></a>7.@DeleteMapping</h3><p>只支持Delete请求，通常用于删除数据</p>
+<p>由于浏览器地址栏只支持Get访问，可以使用Postman工具测试5、6、7的访问，它可以发送几乎所有类型的HTTP请求。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/22/SpringBoot%E4%B8%8B%E7%9A%84SpringMVC%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/" data-id="ck838k8t80000gwoz453s330h" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-SpringBoot配置JSP" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/03/22/SpringBoot%E9%85%8D%E7%BD%AEJSP/" class="article-date">
@@ -137,8 +232,8 @@
 <h2 id="2-在application-properties中添加数据库配置信息"><a href="#2-在application-properties中添加数据库配置信息" class="headerlink" title="2.在application.properties中添加数据库配置信息"></a>2.在application.properties中添加数据库配置信息</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#数据库配置信息</span><br><span class="line">spring.datasource.name=root</span><br><span class="line">spring.datasource.password=<span class="number">333</span></span><br><span class="line">#springboot2.x版本需要加.cj</span><br><span class="line">spring.datasource.driver-<span class="class"><span class="keyword">class</span>-<span class="title">name</span></span>=com.mysql.cj.jdbc.Driver</span><br><span class="line">spring.datasource.url=jdbc:mysql:<span class="comment">//localhost:3306/springbootdb?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai</span></span><br></pre></td></tr></table></figure>
 
 <p>（之前由于没加时区一直出现错误ERROR 8748 — [nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.，页面上出现This application has no explicit mapping for /error, so you are seeing this as a fallback.    注意加时区&amp;serverTimezone=Asia/Shanghai）</p>
-<p>配置完成后，MyBatis就可以创建Mapper来使用了，注意添加@Mapper。</p>
-<h3 id="以下是例子："><a href="#以下是例子：" class="headerlink" title="以下是例子："></a>以下是例子：</h3><p>创建一个UserMapper，如下：</p>
+<h2 id="3-添加扫描路径"><a href="#3-添加扫描路径" class="headerlink" title="3.添加扫描路径"></a>3.添加扫描路径</h2><p>配置完成后，MyBatis就可以创建Mapper来使用了，注意在Mapper方法中添加注解@Mapper，也可以在Application中添加注解@MapperScan(basePackage=”Mapper所在包路径”)。</p>
+<h3 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h3><p>创建一个UserMapper，如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo.mapper;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.example.demo.model.User;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.annotations.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Select</span>(<span class="string">"select name,age,id from user where id=#&#123;id&#125;"</span>)</span><br><span class="line">    <span class="function">User <span class="title">getUserById</span><span class="params">(<span class="keyword">int</span> id)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>创建service：</p>
@@ -149,6 +244,8 @@
 
 <p>运行结果：</p>
 <p><img src="/2020/03/22/SpringBoot%E6%95%B4%E5%90%88MyBatis/image-20200322181029836.jpg" alt="image-20200322181029836"></p>
+<h2 id="4-实现事务管理"><a href="#4-实现事务管理" class="headerlink" title="4.实现事务管理"></a>4.实现事务管理</h2><p>1）在入口类Application.class中添加@EnableTransactionManagement注解启用事务管理</p>
+<p>2）在service.class中需要添加事务的方法上添加@Transactional注解</p>
 
       
     </div>
@@ -308,6 +405,14 @@
       <ul>
         
           <li>
+            <a href="/2020/03/23/SpringBoot%E5%AE%9E%E7%8E%B0RESTFull%E9%A3%8E%E6%A0%BC/">SpringBoot实现RESTFull风格</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/22/SpringBoot%E4%B8%8B%E7%9A%84SpringMVC%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/">SpringBoot下的SpringMVC常用注解</a>
+          </li>
+        
+          <li>
             <a href="/2020/03/22/SpringBoot%E9%85%8D%E7%BD%AEJSP/">SpringBoot配置JSP</a>
           </li>
         
@@ -317,10 +422,6 @@
         
           <li>
             <a href="/2020/03/22/SpringBoot%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">SpringBoot配置文件</a>
-          </li>
-        
-          <li>
-            <a href="/2020/03/19/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">我的第一篇博客</a>
           </li>
         
       </ul>

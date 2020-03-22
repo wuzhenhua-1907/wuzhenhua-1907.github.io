@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>SpringBoot下的SpringMVC常用注解 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="SpringBoot下的SpringMVC常用注解1.@Controller与SpringMVC中相同，处理http请求 2.@RestController是Spring4后新增注解，是@Controller与@ResponseBody的组合，增强了@Controller注解，只要类使用了@RestController，类中的方法相当于都添加了@ResponseBody注解，所以只能返回字符串和j">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot下的SpringMVC常用注解">
+<meta property="og:url" content="http://yoursite.com/2020/03/22/SpringBoot%E4%B8%8B%E7%9A%84SpringMVC%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="SpringBoot下的SpringMVC常用注解1.@Controller与SpringMVC中相同，处理http请求 2.@RestController是Spring4后新增注解，是@Controller与@ResponseBody的组合，增强了@Controller注解，只要类使用了@RestController，类中的方法相当于都添加了@ResponseBody注解，所以只能返回字符串和j">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-22T14:29:30.105Z">
+<meta property="article:modified_time" content="2020-03-22T15:09:06.168Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-SpringBoot下的SpringMVC常用注解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/22/SpringBoot%E4%B8%8B%E7%9A%84SpringMVC%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/" class="article-date">
+  <time datetime="2020-03-22T14:29:30.105Z" itemprop="datePublished">2020-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SpringBoot下的SpringMVC常用注解
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="SpringBoot下的SpringMVC常用注解"><a href="#SpringBoot下的SpringMVC常用注解" class="headerlink" title="SpringBoot下的SpringMVC常用注解"></a>SpringBoot下的SpringMVC常用注解</h1><h3 id="1-Controller"><a href="#1-Controller" class="headerlink" title="1.@Controller"></a>1.@Controller</h3><p>与SpringMVC中相同，处理http请求</p>
+<h3 id="2-RestController"><a href="#2-RestController" class="headerlink" title="2.@RestController"></a>2.@RestController</h3><p>是Spring4后新增注解，是@Controller与@ResponseBody的组合，增强了@Controller注解，只要类使用了@RestController，类中的方法相当于都添加了@ResponseBody注解，所以只能返回字符串和json数据。</p>
+<h3 id="3-RequestMapping"><a href="#3-RequestMapping" class="headerlink" title="3.@RequestMapping"></a>3.@RequestMapping</h3><p>请求，经常使用，所有请求都支持。</p>
+<h3 id="4-GetMapping"><a href="#4-GetMapping" class="headerlink" title="4.@GetMapping"></a>4.@GetMapping</h3><p>只支持Get请求，通常用于查询数据</p>
+<h3 id="5-PostMapping"><a href="#5-PostMapping" class="headerlink" title="5.@PostMapping"></a>5.@PostMapping</h3><p>只支持Post请求，通常用于新增数据</p>
+<h3 id="6-PutMapping"><a href="#6-PutMapping" class="headerlink" title="6.@PutMapping"></a>6.@PutMapping</h3><p>只支持Put请求，通常用于修改数据</p>
+<h3 id="7-DeleteMapping"><a href="#7-DeleteMapping" class="headerlink" title="7.@DeleteMapping"></a>7.@DeleteMapping</h3><p>只支持Delete请求，通常用于删除数据</p>
+<p>由于浏览器地址栏只支持Get访问，可以使用Postman工具测试5、6、7的访问，它可以发送几乎所有类型的HTTP请求。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/22/SpringBoot%E4%B8%8B%E7%9A%84SpringMVC%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/" data-id="ck838k8t80000gwoz453s330h" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/03/23/SpringBoot%E5%AE%9E%E7%8E%B0RESTFull%E9%A3%8E%E6%A0%BC/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          SpringBoot实现RESTFull风格
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/03/22/SpringBoot%E9%85%8D%E7%BD%AEJSP/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">SpringBoot配置JSP</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/03/23/SpringBoot%E5%AE%9E%E7%8E%B0RESTFull%E9%A3%8E%E6%A0%BC/">SpringBoot实现RESTFull风格</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/22/SpringBoot%E4%B8%8B%E7%9A%84SpringMVC%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/">SpringBoot下的SpringMVC常用注解</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/22/SpringBoot%E9%85%8D%E7%BD%AEJSP/">SpringBoot配置JSP</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/22/SpringBoot%E6%95%B4%E5%90%88MyBatis/">SpringBoot整合MyBatis</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/22/SpringBoot%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">SpringBoot配置文件</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

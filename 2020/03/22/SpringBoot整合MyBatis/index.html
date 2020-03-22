@@ -17,7 +17,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/03/22/SpringBoot%E6%95%B4%E5%90%88MyBatis/image-20200322.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/03/22/SpringBoot%E6%95%B4%E5%90%88MyBatis/image-20200322181029836.jpg">
 <meta property="article:published_time" content="2020-03-22T11:47:36.522Z">
-<meta property="article:modified_time" content="2020-03-22T12:08:18.581Z">
+<meta property="article:modified_time" content="2020-03-22T14:14:25.892Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/03/22/SpringBoot%E6%95%B4%E5%90%88MyBatis/image-20200322.jpg">
@@ -98,8 +98,8 @@
 <h2 id="2-在application-properties中添加数据库配置信息"><a href="#2-在application-properties中添加数据库配置信息" class="headerlink" title="2.在application.properties中添加数据库配置信息"></a>2.在application.properties中添加数据库配置信息</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#数据库配置信息</span><br><span class="line">spring.datasource.name=root</span><br><span class="line">spring.datasource.password=<span class="number">333</span></span><br><span class="line">#springboot2.x版本需要加.cj</span><br><span class="line">spring.datasource.driver-<span class="class"><span class="keyword">class</span>-<span class="title">name</span></span>=com.mysql.cj.jdbc.Driver</span><br><span class="line">spring.datasource.url=jdbc:mysql:<span class="comment">//localhost:3306/springbootdb?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai</span></span><br></pre></td></tr></table></figure>
 
 <p>（之前由于没加时区一直出现错误ERROR 8748 — [nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.，页面上出现This application has no explicit mapping for /error, so you are seeing this as a fallback.    注意加时区&amp;serverTimezone=Asia/Shanghai）</p>
-<p>配置完成后，MyBatis就可以创建Mapper来使用了，注意添加@Mapper。</p>
-<h3 id="以下是例子："><a href="#以下是例子：" class="headerlink" title="以下是例子："></a>以下是例子：</h3><p>创建一个UserMapper，如下：</p>
+<h2 id="3-添加扫描路径"><a href="#3-添加扫描路径" class="headerlink" title="3.添加扫描路径"></a>3.添加扫描路径</h2><p>配置完成后，MyBatis就可以创建Mapper来使用了，注意在Mapper方法中添加注解@Mapper，也可以在Application中添加注解@MapperScan(basePackage=”Mapper所在包路径”)。</p>
+<h3 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h3><p>创建一个UserMapper，如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo.mapper;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.example.demo.model.User;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.annotations.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Select</span>(<span class="string">"select name,age,id from user where id=#&#123;id&#125;"</span>)</span><br><span class="line">    <span class="function">User <span class="title">getUserById</span><span class="params">(<span class="keyword">int</span> id)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>创建service：</p>
@@ -110,6 +110,8 @@
 
 <p>运行结果：</p>
 <p><img src="/2020/03/22/SpringBoot%E6%95%B4%E5%90%88MyBatis/image-20200322181029836.jpg" alt="image-20200322181029836"></p>
+<h2 id="4-实现事务管理"><a href="#4-实现事务管理" class="headerlink" title="4.实现事务管理"></a>4.实现事务管理</h2><p>1）在入口类Application.class中添加@EnableTransactionManagement注解启用事务管理</p>
+<p>2）在service.class中需要添加事务的方法上添加@Transactional注解</p>
 
       
     </div>
@@ -172,6 +174,14 @@
       <ul>
         
           <li>
+            <a href="/2020/03/23/SpringBoot%E5%AE%9E%E7%8E%B0RESTFull%E9%A3%8E%E6%A0%BC/">SpringBoot实现RESTFull风格</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/22/SpringBoot%E4%B8%8B%E7%9A%84SpringMVC%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/">SpringBoot下的SpringMVC常用注解</a>
+          </li>
+        
+          <li>
             <a href="/2020/03/22/SpringBoot%E9%85%8D%E7%BD%AEJSP/">SpringBoot配置JSP</a>
           </li>
         
@@ -181,10 +191,6 @@
         
           <li>
             <a href="/2020/03/22/SpringBoot%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">SpringBoot配置文件</a>
-          </li>
-        
-          <li>
-            <a href="/2020/03/19/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">我的第一篇博客</a>
           </li>
         
       </ul>
